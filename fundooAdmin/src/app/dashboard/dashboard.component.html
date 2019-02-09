@@ -1,3 +1,68 @@
-<p>
-  dashboard works!
-</p>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <!-- <a class="nav-link active" href="#">Active</a> -->
+      </li>
+      <li class="nav-item">
+        <h4> <strong> Fundoo </strong></h4>
+      </li>
+      <li class="d-flex flex-row-reverse bd-highlight">
+        <div   class="p-2 bd-highlight">
+            <button type="button" class="btn btn-dark"   (click)="logout()">Logout</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="d-flex flex-row bd-highlight mb-1">
+  <div class="card" style="width: 12rem;"  >
+      <div class="card-header" class="p-4 bd-highlight">
+       Basic
+      </div>
+      <li class="list-group-item">Count</li>
+      </div>
+  
+      <div class="card" style="width: 12rem;" >
+          <div class="card-header" class="p-4 bd-highlight">
+          Advance
+          </div>
+          <li class="list-group-item">Count</li>
+          </div>
+        </div>
+        
+  <div class="card-body">
+      <nav class="navbar navbar-light bg-light">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav>
+
+        <div>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Service</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of array; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.service}}</td>
+              </tr> 
+             
+            </tbody>
+          </table>
+        </div>
+   
+  </div>
+</div>
