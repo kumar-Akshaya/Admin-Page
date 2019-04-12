@@ -1,0 +1,55 @@
+<div class="card-header">
+  <ul class="nav nav-pills card-header-pills">
+    <li class="nav-item">
+      <!-- <a class="nav-link active" href="#">Active</a> -->
+    </li>
+    <li class="nav-item">
+      <h4> <strong> Fundoo </strong></h4>
+    </li>
+
+    <li class="nav-item" class="d-flex flex-row-reverse bd-highlight">
+      <div class="p-2 bd-highlight" *ngIf="isclick==true">
+        <button type="button" class="btn btn-outline-secondary" (click)="showUsers()">
+          Show/Users
+        </button>
+      </div>
+      <div class="p-2 bd-highlight" *ngIf="isclick==false">
+        <button type="button" class="btn btn-outline-secondary" (click)="showUsers()">
+          Hide/Users
+        </button>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-shrink-1 bd-highlight">
+          <button type="button" class="btn btn-dark" (click)="logout()">Logout</button>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <table class="table table-bordered">
+  
+    <thead>
+      <tr class="Header">
+        <th scope="col">SL.No</th>
+        <th scope="col">List of Answers </th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr *ngFor="let item of appArray; let i= index">
+        <th scope="row">{{i+1}}</th>
+        <th scope="row">{{item.message}}</th>
+        <td style='white-space: nowrap'>
+        <button id="appButton" type="button" class="btn btn-outline-success" (click)="approvalAnswer(item)">Approve</button>
+        <button type="button" class="btn btn-outline-danger" (click)="unApproveAnswer(item)">UnApprove</button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

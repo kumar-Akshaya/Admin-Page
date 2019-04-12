@@ -1,0 +1,28 @@
+.head{
+    font-weight: 600;
+    font-family: serif;
+}
+
+.userName{
+    margin-left: 6%;
+}
+.userEmail{
+    margin-left: 10%;
+}
+.userDetail{
+    padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .product{
+    justify-content: flex-start !important;;
+  }
+  }
+
+
+@media only screen and (max-width: 450px) {
+ .action{
+    flex-direction: column;
+ }
+    }
+    

@@ -11,27 +11,26 @@ export class AdminLoginComponent implements OnInit {
   model: any;
   email = new FormControl('',[Validators.required,Validators.email]);
   password = new FormControl('',[Validators.required,Validators.minLength(8)]);
-
+  responace : any;
   constructor( private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
   }
 
-
    login(){
-  
+     localStorage.clear();
     this.model={
       "email" : this.email.value,
       "password" : this.password.value
     };
-     
-
     console.log('model',this.model);
-
-     console.log("Im clicked");
      this.httpService.postRequest('user/adminLogin',this.model).subscribe(data =>{
-      console.log('model',this.model);
-
+      console.log('responance data  ',data);
+      this.responace = data;
+      console.log('responance object  ',this.responace);
+     
+       localStorage.setItem('token', this.responace.id);
+       console.log("token...", this.responace.id);
       this.router.navigate(['dashboard']);
      },
      err =>

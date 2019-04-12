@@ -1,0 +1,61 @@
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-expand-md  navbar-dark bg-dark ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- heading -->
+  <span class="navbar-brand">
+    <span class="f">F</span>
+    <span class="u">u</span>
+    <span class="n">n</span>
+    <span class="d">d</span>
+    <span class="o">o</span>
+    <span class="o1">o</span>
+    <span class="f">A</span>
+    <span class="u">d</span>
+    <span class="n">m</span>
+    <span class="d">i</span>
+    <span class="o">n</span>
+  </span>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li> -->
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-info mr-2 my-2 my-sm-0" type="submit" (click)="Home()">Home</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+    </form>
+
+  </div>
+</nav>
+
+
+
+<h2 class="heading">Order Detail</h2>
+
+
+
+<div class="card"  *ngFor=" let product of orderArray; index as i ">
+    <app-display-order [card]=product [index]=i></app-display-order>
+
+  <div class="d-flex justify-content-between action">
+  
+    <div>
+      <button class="btn btn-outline-info mr-2 my-2 my-sm-0" type="button" (click)="completeOrder(product)">Complete
+        Order</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="cancelOrder(product)">Cancel
+        Order</button>
+    </div>
+  </div>
+
+</div>
+
+

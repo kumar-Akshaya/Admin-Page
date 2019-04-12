@@ -1,0 +1,79 @@
+
+<div class="card text-center">
+<div class="card-header">
+  <ul class="nav nav-pills card-header-pills">
+   
+    <li class="nav-item">
+      <h4> <strong> Fundoo </strong></h4>
+    </li>
+
+    <li>
+      <div class="span4 text-center" *ngIf="isShow==true">
+        <button type="button" class="btn btn-outline-secondary" (click)="showOrder()">
+          orders
+        </button>
+      </div>
+
+      <div class="p-2 bd-highlight" *ngIf="isShow==false">
+        <button type="button" class="btn btn-outline-secondary" (click)="showOrder()">
+          back
+        </button>
+      </div>
+    </li>
+
+    <li class="nav-item" class="d-flex flex-row-reverse bd-highlight">
+      <div class="p-2 bd-highlight" *ngIf="isclick==true">
+        <button type="button" class="btn btn-outline-secondary" (click)="showUsers()">
+          Show/Users
+        </button>
+      </div>
+      <div class="p-2 bd-highlight" *ngIf="isclick==false">
+        <button type="button" class="btn btn-outline-secondary" (click)="showUsers()">
+          Hide/Users
+        </button>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-shrink-1 bd-highlight">
+          <button type="button" class="btn btn-dark" (click)="logout()">Logout</button>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+
+</div>
+<div>
+  
+  <table class="table table-bordered">
+    <thead>
+        <!-- <p class="text-left" id="textDel">Delivary information</p> -->
+      
+      <tr >
+        <th scope="col">No.</th>
+        <th scope="col">Service type</th>
+        <th scope="col">Service Feature</th>
+        <th scope="col">Service price</th>
+        <th scope="col"> Date of Order</th>
+        <th scope="col">Payment type</th>
+        <th scope="col">Delivary Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of array; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td id="proname">{{item.product.name}}</td>
+        <td id="prodes">{{item.product.description}}</td>
+        <td id="propric">{{$}} {{item.price}}</td>
+        <td id="prodate">{{item.createdDate}}</td>
+        <td id="protype">{{paymentType}}</td>
+        <td id="proadd">{{item.address}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>

@@ -1,0 +1,94 @@
+<div class="card-body">
+  <h5 class="card-title">{{index + 1}} &nbsp; Product Detail</h5>
+  <hr class="my-4">
+  <div class="d-flex flex-row flex-wrap   justify-content-around bd-highlight mb-3 product">
+    <div class="p-2 bd-highlight">
+      <div class="head">
+        Product Name
+      </div>
+      <div>
+        {{card.product.name}}
+      </div>
+
+    </div>
+
+    <div class="p-2 bd-highlight">
+      <div class="head">
+        Price
+      </div>
+      <div>
+        ${{card.price}}
+      </div>
+
+    </div>
+    <div class="p-2 bd-highlight">
+      <div class="head">
+        Order Date
+      </div>
+      <div>
+        {{card.createdDate}}
+      </div>
+
+    </div>
+    <div class="p-2 bd-highlight">
+      <div class="head">
+        Payment Mode
+      </div>
+      <div>
+        Cash On Delivery
+      </div>
+
+    </div>
+    <div class="p-2 bd-highlight">
+      <div class="head">
+        Delivery Address
+      </div>
+      <div *ngIf="card.user !=undefined">
+        {{card.user.addresses[0].address}}
+      </div>
+      <div *ngIf="card.user ==undefined">
+          No address
+        </div>
+
+    </div>
+    <!-- <div class="p-2 bd-highlight">Flex item 2</div>
+    <div class="p-2 bd-highlight">Flex item 3</div> -->
+  </div>
+
+
+</div>
+
+  <div *ngIf="card.user !=undefined" class="row userDetail">
+      <div class="col">
+          <div>
+              <h5 class="card-title">User Detail</h5>
+            </div>
+          <div class="card card-body">
+            <div class="d-flex flex-row flex-wrap   justify-content-start bd-highlight mb-3" *ngIf="card.user !=undefined">
+                <div class="p-2 bd-highlight userName">
+                  <div class="head">
+                    User Name
+                  </div>
+                  <div >
+                
+                    {{card.user.firstName}} &nbsp; {{ card.user.lastName}}
+                  </div>
+          
+                </div>
+          
+                <div class="p-2 bd-highlight userEmail">
+                  <div class="head">
+                    Email
+                  </div>
+                  <div>
+                      {{card.user.email}}
+                    
+                  </div>
+          
+                </div>
+              </div>
+          
+          </div>
+      </div>
+  
+    </div>

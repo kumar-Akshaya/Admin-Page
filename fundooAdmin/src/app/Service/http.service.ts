@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {HttpClientModule} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -17,10 +17,31 @@ export class HttpService {
     return this.http.post(this.baseUrl + url, data);
 }
 
+postJSON(url: string, body: any): any {
+  url=this.baseUrl+url;
+  console.log()
+  const httpOptions={
+    headers : new HttpHeaders({
+    'const-Type' : 'application/json',
+    'Authorization':localStorage.getItem('token')
+    })
+  }
+  return this.http.post(url,body,httpOptions)
+ }
+
+getJSON(url) {
+  url = this.baseUrl + url;
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':localStorage.getItem('token')
+    })
+  }
+  return this.http.get(url, httpOptions)
+}
+
 getRequest(url){
-  console.log("get request");
-
-
   return this.http.get(this.baseUrl+url);
 }
+
 }
